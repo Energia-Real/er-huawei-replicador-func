@@ -1,0 +1,18 @@
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      },
+      "enableLiveMetricsFilters": true
+    }
+  },
+  "ConnectionStrings": {
+    "MongoGW": "mongodb+srv://cloudservices:PtbsrhOZbWW6qlCT@er-closter.yhbgqe4.mongodb.net/"
+  },
+  "DataBases": {
+    "MongoGWDataBase": "er-gigawatt-develop"
+  }
+}
