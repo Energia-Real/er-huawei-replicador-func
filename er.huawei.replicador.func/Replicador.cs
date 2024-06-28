@@ -1,5 +1,5 @@
-using er.huawei.replicador.func.BussinesLogic;
-using er.huawei.replicador.func.Services.Interfaces;
+using er.huawei.replicador.func.Application.BussinesLogic;
+using er.huawei.replicador.func.Domain.Interfaces;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;

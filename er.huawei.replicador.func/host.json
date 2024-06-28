@@ -14,5 +14,10 @@
   },
   "DataBases": {
     "MongoGWDataBase": "er-gigawatt-develop"
+  },
+  "RabbitMQSettings": {
+    "Hostname": "localhost",
+    "Username": "vaxidrez",
+    "Password": "VaxiDrez2005"
   }
 }
