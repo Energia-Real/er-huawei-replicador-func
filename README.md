@@ -1,0 +1,1 @@
+# er-huawei-replicador-func
