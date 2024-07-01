@@ -13,19 +13,17 @@ namespace ER.Huawei.Replicador.Bus;
 
 public class RabbitMQBus : IEventBus
 {
-    private readonly RabbitMQSettings _rabbitMQSettings;
     private readonly IMediator _mediator;
     private readonly Dictionary<string, List<Type>> _handlers;
     private readonly List<Type> _eventTypes;
     private readonly IServiceScopeFactory _serviceScopeFactory;
 
-    public RabbitMQBus( IMediator mediator, IServiceScopeFactory serviceScopeFactory, IOptions<RabbitMQSettings> rabbitMQSettings)
+    public RabbitMQBus(IMediator mediator, IServiceScopeFactory serviceScopeFactory)
     {
         _mediator = mediator;
         _serviceScopeFactory = serviceScopeFactory;
-        _handlers = new Dictionary<string, List<Type>>();
-        _eventTypes = new List<Type>();
-        _rabbitMQSettings = rabbitMQSettings.Value;
+        _handlers = new();
+        _eventTypes = new();
     }
 
     public void Publish<T>(T @event) where T : Event
@@ -117,8 +115,9 @@ public class RabbitMQBus : IEventBus
         {
             await ProcessEvent(eventName, message).ConfigureAwait(false);
         }
-        catch(Exception ex) { 
-        
+        catch (Exception ex)
+        {
+
         }
     }
 

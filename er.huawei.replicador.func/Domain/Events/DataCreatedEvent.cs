@@ -1,18 +1,17 @@
-﻿using ER.Huawei.Replicador.Core.Events;
+﻿using er.huawei.replicador.func.Application.Model.Dto;
+using ER.Huawei.Replicador.Core.Events;
 
-namespace ER.Huawei.Replicador.Func.Domain.Events
+namespace ER.Huawei.Replicador.Func.Domain.Events;
+
+public  class DataCreatedEvent : Event
 {
-    public  class DataCreatedEvent : Event
-    {
-        public int From { get; set; }
-        public int To { get; set; }
-        public decimal Amount { get; set; }
+    private PlantDeviceResult _plantDeviceResult { get; set; }
+    public bool _success { get; set; }
+    
 
-        public DataCreatedEvent(int from, int to, decimal amount)
-        {
-            From = from;
-            To = to;
-            Amount = amount;
-        }
+    public DataCreatedEvent(bool success, PlantDeviceResult plantDeviceResult)
+    {
+        _success = success;
+        _plantDeviceResult = plantDeviceResult;
     }
 }

@@ -19,7 +19,7 @@ public class RealTimeDataCommandHandler : IRequestHandler<RealTimeDataCommand, b
     {
         //logica para publicar el mensaje dentro del event bus rabbitmq
 
-        _bus.Publish(new DataCreatedEvent(request.To, request.From, request.Amount));
+        _bus.Publish(new DataCreatedEvent(request.Success,request.PlantDeviceResult));
 
         return Task.FromResult(true);
     }

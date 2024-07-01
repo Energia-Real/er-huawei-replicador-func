@@ -16,6 +16,7 @@ public class MongoAdapter : IMongoRepository
     private readonly IEventBus _bus;
 
     public bool Success { get; private set; }
+    public PlantDeviceResult Result { get; private set; }
 
     public MongoAdapter(IConfiguration configuration, IEventBus bus)
     {
@@ -65,8 +66,10 @@ public class MongoAdapter : IMongoRepository
             await collection.InsertOneAsync(device);
 
             var realTimeDataCommand = new RealTimeDataCommand(
-                Success = true
+                Success = true,
+                Result = device
                 );
+
             _bus.SendCommand(realTimeDataCommand);
         }
         catch (Exception ex)
