@@ -31,19 +31,26 @@ public class MongoAdapter : IMongoRepository
         {
             var collection = _database.GetCollection<Device>("Devices");
 
-            // Verificar si el índice existe en el campo devDn
+            // Crear índice en stationCode si no existe (opcional)
             var indexKeysDefinition = Builders<Device>.IndexKeys.Ascending(x => x.stationCode);
             var indexModel = new CreateIndexModel<Device>(indexKeysDefinition);
-            var indexExists = await collection.Indexes.CreateOneAsync(indexModel);
+            await collection.Indexes.CreateOneAsync(indexModel);
 
-            // Si el índice no existe, crearlo
-            if (string.IsNullOrEmpty(indexExists))
+            // Definir los códigos de estación que quieres filtrar
+            var stationCodes = new List<string>
             {
-                await collection.Indexes.CreateOneAsync(indexModel);
-            }
+            "NE=33761005",
+            "NE=33754356",
+            "NE=33778453",
+            "NE=33723147",
+            "NE=33691316"
+            };
 
-            // Obtener todos los registros de la colección
-            var resultado = await collection.Find(_ => true).ToListAsync();
+            // Crear el filtro
+            var filter = Builders<Device>.Filter.In(x => x.stationCode, stationCodes);
+
+            // Obtener los registros que cumplen con el filtro
+            var resultado = await collection.Find(filter).ToListAsync();
 
             return resultado;
         }
