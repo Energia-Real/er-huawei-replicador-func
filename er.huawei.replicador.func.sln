@@ -5,17 +5,22 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "er.huawei.replicador.func", "er.huawei.replicador.func\er.huawei.replicador.func.csproj", "{6B0ED2C2-E88C-44DC-B3C7-84ED24A54C71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "er.huawei.replicador.core", "er.huawei.replicador.core\er.huawei.replicador.core.csproj", "{77CC71DA-C442-4253-97F6-5052ED306D59}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "er.huawei.replicador.core", "er.huawei.replicador.core\er.huawei.replicador.core.csproj", "{77CC71DA-C442-4253-97F6-5052ED306D59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "er.huawei.replicador.bus", "er.huawei.replicador.bus\er.huawei.replicador.bus.csproj", "{96A45E44-5BE6-48D7-87FF-6269127D2A80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "er.huawei.replicador.bus", "er.huawei.replicador.bus\er.huawei.replicador.bus.csproj", "{96A45E44-5BE6-48D7-87FF-6269127D2A80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "er.huawei.replicador.ioc", "er.huawei.replicador.ioc\er.huawei.replicador.ioc.csproj", "{10B0A611-7084-493C-BFE5-2057B9D86F3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "er.huawei.replicador.ioc", "er.huawei.replicador.ioc\er.huawei.replicador.ioc.csproj", "{10B0A611-7084-493C-BFE5-2057B9D86F3F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{8D4275BE-B207-4E2A-8871-22674DDA88E3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure.Bus", "Infrastructure.Bus", "{05AF6F58-4E3A-499F-8285-82AF7CB58016}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure.Ioc", "Infrastructure.Ioc", "{8F4CF04D-CF2E-4A09-8377-A5A499D3CC23}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución", "Elementos de la solución", "{FFB9FF6A-B5B2-4D5B-91D7-602951179D2D}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\main_er-huawei-replicador.yml = .github\workflows\main_er-huawei-replicador.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
