@@ -63,7 +63,7 @@ public class MongoAdapter : IMongoRepository
             device.repliedDateTime = DateTime.Now;
 
             // Insertar el dispositivo en la colección
-            await collection.InsertOneAsync(device);
+            // await collection.InsertOneAsync(device);
 
             var realTimeDataCommand = new RealTimeDataCommand(
                 Success = true,
