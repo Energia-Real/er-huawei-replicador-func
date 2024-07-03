@@ -7,12 +7,12 @@ public class RealTimeDataCommand : DataCommand
 {
     
 
-    public RealTimeDataCommand(bool success, PlantDeviceResult plantDeviceResult)
+    public RealTimeDataCommand(bool success, PlantDeviceResultEvent plantDeviceResult)
     {
         Success = success;
         PlantDeviceResult = plantDeviceResult;
     }
 
     public bool Success { get; }
-    public PlantDeviceResult PlantDeviceResult { get; }
+    public PlantDeviceResultEvent PlantDeviceResult { get; }
 }

@@ -6,5 +6,5 @@ namespace er.huawei.replicador.func.Data.Repository.Interfaces;
 public interface IMongoRepository
 {
     Task<List<Device>> GetDeviceDataAsync();
-    Task InsertDeviceDataAsync(PlantDeviceResult device);
+    Task InsertDeviceDataAsync(PlantDeviceResultEvent device);
 }

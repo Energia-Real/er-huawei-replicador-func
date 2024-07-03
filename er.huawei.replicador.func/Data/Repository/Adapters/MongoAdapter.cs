@@ -16,7 +16,7 @@ public class MongoAdapter : IMongoRepository
     private readonly IEventBus _bus;
 
     public bool Success { get; private set; }
-    public PlantDeviceResult Result { get; private set; }
+    public PlantDeviceResultEvent Result { get; private set; }
 
     public MongoAdapter(IConfiguration configuration, IEventBus bus)
     {
@@ -62,11 +62,11 @@ public class MongoAdapter : IMongoRepository
         }
     }
 
-    public async Task InsertDeviceDataAsync(PlantDeviceResult device)
+    public async Task InsertDeviceDataAsync(PlantDeviceResultEvent device)
     {
         try
         {
-            var collection = _database.GetCollection<PlantDeviceResult>("RepliRealtimeData");
+            var collection = _database.GetCollection<PlantDeviceResultEvent>("RepliRealtimeData");
             device.repliedDateTime = DateTime.Now;
 
             // Insertar el dispositivo en la colección

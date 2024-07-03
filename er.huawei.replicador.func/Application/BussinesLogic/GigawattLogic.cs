@@ -28,7 +28,7 @@ public class GigawattLogic(IMongoRepository repository, IBrandFactory inverterFa
         // agrupa los dispositivos por proyecto
         foreach (var proyect in proyects.GroupBy(a => a.stationCode))
         {
-            var insertIntoMongo = new PlantDeviceResult();
+            var insertIntoMongo = new PlantDeviceResultEvent();
             insertIntoMongo.invertersList = new List<DeviceDataResponse<DeviceInverterDataItem>>();
             insertIntoMongo.metterList = new List<DeviceDataResponse<DeviceMetterDataItem>>();
 
@@ -60,7 +60,7 @@ public class GigawattLogic(IMongoRepository repository, IBrandFactory inverterFa
         return true;
     }
 
-    private async Task<PlantDeviceResult> ReplicateAlldeviceData(List<Device> devices)
+    private async Task<PlantDeviceResultEvent> ReplicateAlldeviceData(List<Device> devices)
     {
         // genera la instancia de la marca correspondiente
         var inverterBrand = _inverterFactory.Create("huawei");
@@ -73,7 +73,7 @@ public class GigawattLogic(IMongoRepository repository, IBrandFactory inverterFa
         var gruposDe100 = inverters.Batch(100).ToList();
 
         // instancias de respuesta
-        var responseAlldevices = new PlantDeviceResult();
+        var responseAlldevices = new PlantDeviceResultEvent();
         responseAlldevices.invertersList = new List<DeviceDataResponse<DeviceInverterDataItem>>();
         responseAlldevices.metterList = new List<DeviceDataResponse<DeviceMetterDataItem>>();
 

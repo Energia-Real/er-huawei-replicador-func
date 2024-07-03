@@ -1,6 +1,5 @@
 ﻿using er.huawei.replicador.func.Domain.Commands;
 using ER.Huawei.Replicador.Core.Bus;
-using ER.Huawei.Replicador.Func.Domain.Events;
 using MediatR;
 
 
@@ -19,7 +18,7 @@ public class RealTimeDataCommandHandler : IRequestHandler<RealTimeDataCommand, b
     {
         //logica para publicar el mensaje dentro del event bus rabbitmq
 
-        _bus.Publish(new DataCreatedEvent(request.Success,request.PlantDeviceResult));
+        _bus.Publish(request.PlantDeviceResult);
 
         return Task.FromResult(true);
     }
